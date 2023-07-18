@@ -29,7 +29,7 @@
     </div>
 </header>
 
-<main class="w-full flex justify-center mt-36" >
+<main class="w-full flex justify-center mt-12" >
     {{--    Change to form--}}
     <section id="Register">
         <div class="bg-brand-white rounded-lg shadow-lg py-5 px-10 w-[500px]">
