@@ -13,7 +13,7 @@
     </head>
 
     <body class="min-h-screen bg-brand-gray">
-        <header class="w-full bg-brand-white h-28 flex justify-between items-center shadow-lg z-[3]">
+        <header class="w-full bg-brand-white h-24 flex justify-between items-center shadow-lg z-[3]">
             <div class="w-full px-6 flex justify-between">
                 <p class="font-extrabold text-3xl text-black">Jibbr</p>
                 <div class="relative w-1/2 h-10">
@@ -27,7 +27,7 @@
             </div>
         </header>
 
-        <main class="w-full flex justify-center mt-44">
+        <main class="w-full flex justify-center">
                     {{ $slot }}
         </main>
     </body>

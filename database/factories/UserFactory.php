@@ -27,7 +27,7 @@ class UserFactory extends Factory
 //        ];
 
         return [
-            'name' => 'test',
+            'username' => 'test',
             'email' => 'test@test.com',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),

@@ -1,24 +1,24 @@
 <x-app-layout>
-        <section id="Login">
-            <div class="bg-brand-white rounded-lg shadow-lg p-4">
-                <h1>Sign In</h1>
+        <section id="Login" class="mt-44">
+            <x-card class="w-[500px]">
+                <h1 class="font-bold text-2xl py-2 grid place-items-center border-b-2 border-grey-300 pb-4">Sign In</h1>
 
                 <div class="flex flex-col mt-10">
-                    <label for="email">Email</label>
-                    <input class="rounded-xl shadow-md border-none focus:ring-0 focus:border-none" type="email" id="email" name="email" placeholder="Ex: email@example.com" />
+                    <label for="email" class="ml-3">Email</label>
+                    <x-text-input type="email" id="email" name="email" placeholder="Ex: email@example.com" />
                 </div>
 
                 <div class="flex flex-col mt-10">
-                    <label for="password">Password</label>
-                    <input class="rounded-xl shadow-md border-none focus:ring-0 focus:border-none" type="password" id="password" name="password" />
+                    <label for="password" class="ml-3">Password</label>
+                    <x-text-input type="password" id="password" name="password" />
                 </div>
 
                 <div>
-                    <p>Don't have an account? <a>Register</a></p>
+                    <p class="m-3">Don't have an account? <a href="{{ route('register') }}" class="text-green-600 underline">Register</a></p>
                 </div>
-            </div>
-            <button class="w-full mt-10 bg-gradient-to-r from-brand-primary to-brand-secondary">
+            </x-card>
+            <x-primary-button>
                 Log in
-            </button>
+            </x-primary-button>
         </section>
 </x-app-layout>
