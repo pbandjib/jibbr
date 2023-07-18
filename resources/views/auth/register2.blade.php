@@ -29,11 +29,16 @@
     </div>
 </header>
 
-<main class="w-full flex justify-center mt-44" >
-{{--    Change to form--}}
-    <section id="Login">
+<main class="w-full flex justify-center mt-36" >
+    {{--    Change to form--}}
+    <section id="Register">
         <div class="bg-brand-white rounded-lg shadow-lg py-5 px-10 w-[500px]">
-            <h1 class="font-bold grid text-2xl py-2 place-items-center border-b-2 border-grey-300 pb-4">Sign In</h1>
+            <h1 class="font-bold text-2xl py-2 grid place-items-center border-b-2 border-grey-300 pb-4">Register</h1>
+
+            <div class="flex flex-col mt-10">
+                <label for="username" class="ml-3">Username:</label>
+                <input class="rounded-xl shadow-md focus:ring-0 border-1 border-transparent focus:border-1 focus:border-blue-300 focus:border" type="text" id="register" name="register" placeholder="Username" />
+            </div>
 
             <div class="flex flex-col mt-10">
                 <label for="email" class="ml-3">Email:</label>
@@ -44,15 +49,25 @@
                 <label for="password" class="ml-3">Password:</label>
                 <input class="rounded-xl shadow-md focus:ring-0 border-1 border-transparent focus:border-1 focus:border-blue-300 focus:border" type="password" id="password" name="password" placeholder="Password"/>
             </div>
+
+            <div class="flex flex-col mt-10 ">
+                <label for="password" class="ml-3">Confirm Password:</label>
+                <input class="rounded-xl shadow-md focus:ring-0 border-1 border-transparent focus:border-1 focus:border-blue-300 focus:border" type="password" id="confirm password" name="confirm password" placeholder="Confirm Password"/>
+            </div>
+
             <div>
-                <p class="ml-3 mt-3 text-red-500">Password or Username don't match</p>
+                <p class="ml-3 mt-3 mb-3 text-red-500">Passwords do not match</p>
+            </div>
+            <div class="flex items-center">
+                <input type="checkbox" id="termsCheckbox" class="form-checkbox text-green-500 h-4 w-4 ml-3">
+                <label for="termsCheckbox" class="ml-2">I accept the <a href="#" class="text-green-500">terms and conditions</a></label>
             </div>
             <div>
-                <p class="mt-3 ml-3">Don't have an account? <a href="#" class="text-green-500 underline">Register</a></p>
+                <p class="mt-3 ml-3">Already have an account? <a href="#" class="text-green-500 underline">Login</a></p>
             </div>
         </div>
-        <button class="w-full h-10 mt-10 font-bold rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ">
-            Log in
+        <button class="w-full h-10 mt-10 rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ">
+            Register
         </button>
     </section>
 </main>
