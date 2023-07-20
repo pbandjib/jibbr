@@ -21,9 +21,10 @@
                     <input type="text" class="bg-brand-gray rounded-full h-10 w-full px-12 border-none" placeholder="Search for topics..." />
                 </div>
                 <div class="flex items-center">
-                    <img class="mr-4" src="{{asset('svg/bell.svg')}}" />
 
                     @if (Auth::user())
+                        <img class="mr-4" src="{{asset('svg/bell.svg')}}" />
+
                     <!-- Settings Dropdown -->
                     <div class="hidden sm:flex sm:items-center sm:ml-6">
                         <x-dropdown align="right" width="48">
@@ -106,7 +107,7 @@
                     </div>
                 </div>
             @else
-                <a href="{{route('login')}}">Log in</a>
+                <a class="font-extrabold" href="{{route('login')}}">Log in</a>
             @endif
 
             </div>
