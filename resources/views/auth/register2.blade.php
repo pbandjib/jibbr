@@ -37,9 +37,14 @@
             </div>
 
             <div class="flex items-center mt-4">
-                <input type="checkbox" id="termsCheckbox" class="form-checkbox text-green-500 h-4 w-4 ml-3">
+                <input name="terms_and_service" type="checkbox" id="termsCheckbox" class="form-checkbox text-green-500 h-4 w-4 ml-3">
                 <label for="termsCheckbox" class="ml-2">I accept the <a href="#" class="text-green-500 hover:underline">terms and conditions</a></label>
             </div>
+            @if ($errors->has('terms_and_service'))
+                <p class="m-3 text-red-500 m-2">{{ $errors->first('terms_and_service') }}</p>
+            @endif
+
+
             <div>
                 <p class="m-3">Already have an account? <a href="{{ route('login') }}" class="text-green-500 underline">Login</a></p>
             </div>
