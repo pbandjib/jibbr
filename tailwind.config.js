@@ -21,6 +21,7 @@ export default {
                 'brand-primary': '#A7EED1',
                 'brand-secondary': '#A7E8EE',
                 'link-primary': '#159662',
+                'greyed-text': '#7A7A7A'
             },
         },
     },
