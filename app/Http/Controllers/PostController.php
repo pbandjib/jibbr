@@ -31,7 +31,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formFields = $request->validate([
+            'title' => 'required|string|max:100',
+            'body' => 'required|string|max:10000',
+        ]);
+
+        $formFields['user_id'] = auth()->id();
+
+        Post::create($formFields);
+
+        return redirect('/posts')->with('message', 'Post created successfully');
     }
 
     /**

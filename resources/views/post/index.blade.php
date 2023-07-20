@@ -14,7 +14,7 @@
                                 <p>123</p>
                                 <img src="{{ asset('svg/heart.svg') }}"/>
                             </div>
-                            <img class="w-10 h-10 object-cover rounded-full" src="{{$post->user->img}}" />
+                            <x-profile-picture image="{{$post->user->img}}" />
 
                         </div>
 
