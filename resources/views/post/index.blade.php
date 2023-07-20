@@ -1,3 +1,5 @@
+{{--TODO: Fix Large and Small layouts proper formating--}}
+
 <x-app-layout>
     <section id="posts" class="w-full flex justify-center">
         <div class="flex flex-col w-2/3">
@@ -17,7 +19,6 @@
                             <x-profile-picture image="{{$post->user->img}}" />
 
                         </div>
-
                         <div>
                             <h2 class="font-extrabold text-3xl mb-3">{{$post->title}}</h2>
                             <div class="flex items-center text-greyed-text mb-3">
