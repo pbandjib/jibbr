@@ -29,6 +29,7 @@ class UserFactory extends Factory
         return [
             'username' => 'test',
             'email' => 'test@test.com',
+            'img' => 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
         ];
