@@ -18,6 +18,11 @@ return new class extends Migration
                ->references('id')
                ->on('users')
                ->onDelete('cascade');
+           $table->unsignedBigInteger('community_id')->nullable();
+           $table->foreign('community_id')
+               ->references('id')
+               ->on('communities')
+               ->onDelete('cascade');
            $table->string('image')->nullable();
            $table->string('title');
            $table->text('body');

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class PostFactory extends Factory
+class CommunityFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,10 +17,8 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => 1,
-            'community_id' => rand(1, 3),
-            'title' => $this->faker->sentence,
-            'body' => $this->faker->paragraph,
+            'community_name' => $this->faker->name,
+            'community_description' => $this->faker->paragraph,
         ];
     }
 }
