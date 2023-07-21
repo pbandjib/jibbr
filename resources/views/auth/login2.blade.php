@@ -26,7 +26,7 @@
                     <p class="m-3">Don't have an account? <a href="{{ route('register') }}" class="text-green-600 underline">Register</a></p>
                 </div>
             </x-card>
-            <x-primary-button>
+            <x-primary-button class="w-full mt-10">
                 Log in
             </x-primary-button>
         </form>
