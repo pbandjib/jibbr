@@ -70,9 +70,6 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        if($post->user_id!= auth()->id()){
-            abort(403, 'Unauthorized Action');
-        }
 
         $formFields = $request->validate([
             'title' => 'required|string|max:100',
