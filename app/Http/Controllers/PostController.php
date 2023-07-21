@@ -81,6 +81,13 @@ class PostController extends Controller
         return redirect('/post/'.$post->id)->with('message', 'Post updated succesfully');
     }
 
+    public function delete(Post $post)
+    {
+        return view('post.delete', [
+            'post' => $post
+        ]);
+    }
+
     /**
      * Remove the specified resource from storage.
      */
