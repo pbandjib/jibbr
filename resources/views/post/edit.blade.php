@@ -18,7 +18,7 @@
                     <p class="text-sm text-red-500 ml-3">{{$errors->first('body')}}</p>
                 @endif
                 <div class="w-full justify-end flex">
-                    <x-primary-button class="w-1/3">Update Post</x-primary-button>
+                    <x-primary-button class="w-1/3 mt-10">Update Post</x-primary-button>
                 </div>
             </form>
         </x-card>
