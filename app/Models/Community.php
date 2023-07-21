@@ -9,6 +9,10 @@ class Community extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'community_name',
+    ];
+
     public function posts()
     {
         return $this->hasMany(Post::class);
