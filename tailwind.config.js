@@ -7,12 +7,21 @@ export default {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './resources/**/*.blade.php',
     ],
 
     theme: {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+            },
+            colors: {
+                'brand-gray': '#F2F2F2',
+                'brand-white': '#FCFCFC',
+                'brand-primary': '#A7EED1',
+                'brand-secondary': '#A7E8EE',
+                'link-primary': '#159662',
+                'greyed-text': '#7A7A7A'
             },
         },
     },
