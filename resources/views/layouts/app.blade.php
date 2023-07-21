@@ -15,7 +15,10 @@
     <body class="min-h-screen bg-brand-gray">
         <header class="w-full bg-brand-white h-24 flex justify-between items-center shadow-lg z-[3]">
             <div class="w-full px-6 flex justify-between">
-                <p class="font-extrabold text-3xl text-black">Jibbr</p>
+                <a href="{{route('post.index')}}">
+                    <p class="font-extrabold text-3xl text-black">Jibbr</p>
+                </a>
+
                 <div class="relative w-1/2 h-10">
                     <img class="absolute top-1/2 -translate-y-1/2 left-2" src="{{asset('svg/magnifyingglass.svg')}}" />
                     <input type="text" class="bg-brand-gray rounded-full h-10 w-full px-12 border-none" placeholder="Search for topics..." />

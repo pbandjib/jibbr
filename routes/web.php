@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/post/{id}', [PostController::class,'show'])->name('post.show');
+
+Route::get('/community', [CommunityController::class,'index'])->name('community.index');
+Route::get('/community/{id}', [CommunityController::class,'show'])->name('community.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
