@@ -79,11 +79,24 @@ class CommunityController extends Controller
         return redirect('/community/'.$community->id)->with('message', 'Community updated succesfully');
     }
 
+
+
+
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+
+    public function delete(Community $community)
     {
-        //
+        return view('community.delete', [
+            'community' => $community
+        ]);
     }
+
+    public function destroy(Community $community)
+    {
+        $community->delete();
+        return redirect('/')->with('message', 'community deleted succesfully');
+    }
+
 }
