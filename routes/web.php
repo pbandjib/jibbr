@@ -39,6 +39,14 @@ Route::middleware('auth')->group(function () {
     });
 });
 
+
+Route::get('/community/{community}/edit', [CommunityController::class, 'edit'])
+        ->name('community.edit');
+
+Route::put('/community/{community}', [CommunityController::class, 'update'])
+    ->name('community.update');
+
+
 Route::get('/post/{id}', [PostController::class,'show'])->name('post.show');
 
 
