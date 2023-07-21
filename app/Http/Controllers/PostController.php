@@ -40,7 +40,7 @@ class PostController extends Controller
 
         Post::create($formFields);
 
-        return redirect('/posts')->with('message', 'Post created successfully');
+        return redirect('/')->with('message', 'Post created succesfully');
     }
 
     /**
@@ -48,23 +48,37 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        return view('post.show', [
+            'post' => $post
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Post $post)
     {
-        //
+        return view('post.edit', [
+            'post' => $post
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Post $post)
     {
-        //
+
+        $formFields = $request->validate([
+            'title' => 'required|string|max:100',
+            'body' => 'required|string|max:10000',
+        ]);
+
+        $post->update($formFields);
+
+        return redirect('/post/'.$post->id)->with('message', 'Post updated succesfully');
     }
 
     /**

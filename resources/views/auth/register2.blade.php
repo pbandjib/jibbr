@@ -49,7 +49,7 @@
                 <p class="m-3">Already have an account? <a href="{{ route('login') }}" class="text-green-500 underline">Login</a></p>
             </div>
        </x-card>
-        <x-primary-button>
+        <x-primary-button class="w-full mt-10">
             Register
         </x-primary-button>
     </form>

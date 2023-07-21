@@ -1,11 +1,5 @@
-{{--TODO: Fix Large and Small layouts proper formating--}}
-
 <x-app-layout>
     <x-main-layout>
-        <x-card class=" flex h-10 w-full mt-4 items-center">
-            <p>Feed Filters</p>
-        </x-card>
-        @foreach ($posts as $post)
             <x-card class="mt-4">
                 <div class="flex">
                     <div class="flex flex-col justify-center items-center mr-4 w-20">
@@ -17,8 +11,6 @@
                             <p>123</p>
                             <img src="{{ asset('svg/heart.svg') }}"/>
                         </div>
-
-
                     </div>
                     <div class="w-full">
                         <a href="{{route('post.show', $post->id)}}">
@@ -31,17 +23,25 @@
 
 
                         <p class="mb-3 border-b border-gray-300 pb-3 break-all">{{$post->body}}</p>
-                        <div class="flex justify-between">
+                        <div class="flex justify-between mb-3">
                             <div class="flex">
                                 <x-profile-picture image="{{$post->user->img}}" />
-                                <p class="text-greyed-text">Posted by <a href="#" class="text-link-primary"> {{$post->user->username}}</a></p>
+                                <p class="text-greyed-text ">Posted by <a href="#" class="text-link-primary"> {{$post->user->username}}</a></p>
                             </div>
-
                             <p class="text-greyed-text">{{$post->created_at->diffForHumans()}}</p>
                         </div>
+                        <form class="flex flex-col w-full bg-brand-gray shadow-xl rounded-xl p-4">
+                            <textarea class="w-full h-40 border-transparent bg-transparent focus:border-transparent focus:ring-transparent" placeholder="Make a comment"></textarea>
+                            <div class="flex justify-between items-center mt-4">
+                                <p>123/5000</p>
+                                <x-primary-button class="w-48">Post</x-primary-button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </x-card>
-        @endforeach
+        <x-card class=" flex h-10 w-full mt-4 items-center">
+            <p>Feed Filters</p>
+        </x-card>
     </x-main-layout>
 </x-app-layout>
