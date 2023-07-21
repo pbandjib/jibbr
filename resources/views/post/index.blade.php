@@ -5,7 +5,6 @@
         <div class="flex flex-col w-2/3">
             @foreach ($posts as $post)
                 <x-card class="mt-4">
-
                     <div class="flex">
                         <div class="flex flex-col items-center justify-between mr-4 w-20">
                             <div class="flex flex-col items-center">
@@ -16,7 +15,7 @@
                                 <p>123</p>
                                 <img src="{{ asset('svg/heart.svg') }}"/>
                             </div>
-                            <x-profile-picture image="{{$post->user->img}}" />
+                            <x-profile-picture image="{{$post->user->img}}"/>
 
                         </div>
                         <div>
@@ -29,7 +28,7 @@
                             </div>
 
 
-                            <p class="mb-3 border-b border-gray-300 pb-3">{{$post->body}}</p>
+                            <p class="mb-3 border-b border-gray-300 pb-3 break-all">{{$post->body}}</p>
                             <div class="flex justify-between">
                                 <p class="text-greyed-text">Posted by <a href="#" class="text-link-primary"> {{$post->user->username}}</a></p>
                                 <p class="text-greyed-text">{{$post->created_at->diffForHumans()}}</p>

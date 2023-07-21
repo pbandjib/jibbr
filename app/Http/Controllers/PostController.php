@@ -40,7 +40,7 @@ class PostController extends Controller
 
         Post::create($formFields);
 
-        return redirect('/posts')->with('message', 'Post created succesfully');
+        return redirect('/')->with('message', 'Post created succesfully');
     }
 
     /**
