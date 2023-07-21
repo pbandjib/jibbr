@@ -18,6 +18,7 @@ class PostFactory extends Factory
     {
         return [
             'user_id' => 1,
+            'community_id' => rand(1, 3),
             'title' => $this->faker->sentence,
             'body' => $this->faker->paragraph,
         ];
