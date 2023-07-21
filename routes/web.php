@@ -27,6 +27,12 @@ Route::middleware('auth')->group(function () {
 
         Route::put('/post/{post}', [PostController::class, 'update'])
             ->name('post.update');
+
+        Route::delete('/post/{post}', [PostController::class, 'destroy'])
+            ->name('post.destroy');
+
+        Route::get('/post/{post}/delete', [PostController::class, 'delete'])
+            ->name('post.delete');
     });
 });
 
