@@ -1,12 +1,6 @@
 <x-app-layout>
-    <div class="mt-14 flex w-full justify-between">
-        <div>
-            <p>test</p>
-        </div>
-
-        <div class="w-2/3">
+    <x-main-layout>
             <x-card class="mt-4">
-
                 <div class="flex">
                     <div class="flex flex-col justify-center items-center mr-4 w-20">
                         <div class="flex flex-col items-center">
@@ -17,10 +11,8 @@
                             <p>123</p>
                             <img src="{{ asset('svg/heart.svg') }}"/>
                         </div>
-
-
                     </div>
-                    <div>
+                    <div class="w-full">
                         <a href="{{route('post.show', $post->id)}}">
                             <h2 class="font-extrabold text-3xl mb-3 break-all">{{$post->title}}</h2>
                         </a>
@@ -39,35 +31,17 @@
                             <p class="text-greyed-text">{{$post->created_at->diffForHumans()}}</p>
                         </div>
                         <form class="flex flex-col w-full bg-brand-gray shadow-xl rounded-xl p-4">
-                            <textarea class="w-full h-56 border-transparent bg-transparent focus:border-transparent focus:ring-transparent" placeholder="Make a comment"></textarea>
-                            <div class="flex justify-between items-center mt-4 max">
-                                <p class="">123/5000</p>
-                                <x-primary-button class="w-1/4 mt-0">Post</x-primary-button>
+                            <textarea class="w-full h-40 border-transparent bg-transparent focus:border-transparent focus:ring-transparent" placeholder="Make a comment"></textarea>
+                            <div class="flex justify-between items-center mt-4">
+                                <p>123/5000</p>
+                                <x-primary-button class="w-48">Post</x-primary-button>
                             </div>
                         </form>
-
-
-
-
                     </div>
-
-
-
                 </div>
             </x-card>
-        </div>
-
-        <div>
-            <x-primary-button> Make Post</x-primary-button>
-            <x-card>
-                <p>test</p>
-            </x-card>
-
-
-        </div>
-
-    </div>
-
-
-
+        <x-card class=" flex h-10 w-full mt-4 items-center">
+            <p>Feed Filters</p>
+        </x-card>
+    </x-main-layout>
 </x-app-layout>
