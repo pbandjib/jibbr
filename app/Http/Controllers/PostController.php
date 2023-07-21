@@ -92,10 +92,7 @@ class PostController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Post $post){
-
-        if($post->user_id != auth()->id()){
-            abort(403, "Unauthorized action");
-        }
+        $post->delete();
         return redirect('/')->with('message', 'Post deleted succesfully');
     }
 }
