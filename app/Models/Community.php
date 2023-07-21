@@ -11,6 +11,7 @@ class Community extends Model
 
     protected $fillable = [
         'community_name',
+        'community_description',
     ];
 
     public function posts()

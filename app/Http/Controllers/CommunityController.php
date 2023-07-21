@@ -56,17 +56,27 @@ class CommunityController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Community $community)
     {
-        //
+        return view('community.edit', [
+            'community' => $community
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Community $community)
     {
-        //
+
+        $formFields = $request->validate([
+            'community_name' => 'required|string|max:30',
+            'community_description' => 'required|string|max:300',
+        ]);
+
+        $community->update($formFields);
+
+        return redirect('/community/'.$community->id)->with('message', 'Community updated succesfully');
     }
 
     /**
