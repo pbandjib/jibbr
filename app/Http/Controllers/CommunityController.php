@@ -23,7 +23,7 @@ class CommunityController extends Controller
      */
     public function create()
     {
-        //
+        return view('community.create');
     }
 
     /**
@@ -31,7 +31,14 @@ class CommunityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formFields = $request->validate([
+            'community_name' => 'required|string|max:32',
+        ]);
+
+
+        Community::create($formFields);
+
+        return redirect('/')->with('message', 'Community created succesfully');
     }
 
     /**

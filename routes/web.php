@@ -21,6 +21,8 @@ Route::get('/', [PostController::class, 'index'])->name('post.index');
 Route::middleware('auth')->group(function () {
     Route::post('/post', [PostController::class,'store'])->name('post.store');
     Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
+    Route::get('/community/create', [CommunityController::class, 'create'])->name('community.create');
+    Route::post('/community', [CommunityController::class,'store'])->name('community.store');
 
     Route::middleware('checkOwner:post')->group(function () {
         Route::get('/post/{post}/edit', [PostController::class, 'edit'])
@@ -38,6 +40,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/post/{id}', [PostController::class,'show'])->name('post.show');
+
 
 Route::get('/community', [CommunityController::class,'index'])->name('community.index');
 Route::get('/community/{id}', [CommunityController::class,'show'])->name('community.show');
