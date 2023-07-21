@@ -2,6 +2,7 @@
     <div class="flex w-1/6 justify-center mt-3">
         <x-card class="justify-center">
             <p>test</p>
+            <a href="{{route('community.index')}}">All Communities</a>
         </x-card>
     </div>
     <div class="flex flex-col w-2/3">
