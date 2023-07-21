@@ -58,10 +58,8 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Post $post)
     {
-        $post = Post::findOrFail($id);
-
         return view('post.edit', [
             'post' => $post
         ]);
@@ -70,9 +68,20 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        if($post->user_id!= auth()->id()){
+            abort(403, 'Unauthorized Action');
+        }
+
+        $formFields = $request->validate([
+            'title' => 'required|string|max:100',
+            'body' => 'required|string|max:10000',
+        ]);
+
+        $post->update($formFields);
+
+        return redirect('/post/'.$post->id)->with('message', 'Post updated succesfully');
     }
 
     /**

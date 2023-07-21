@@ -6,8 +6,9 @@
                 <x-profile-picture image="{{Auth::user()->img}}"/>
                 <p class="text-lg text-neutral-500">Editing as <a class="text-link-primary" href="#">{{Auth::user()->username}}</a></p>
             </div>
-            <form class="flex flex-col mt-6" action="{{route('post.store')}}" method="POST">
+            <form class="flex flex-col mt-6" action="{{route('post.update', $post->id)}}" method="POST">
                 @csrf
+                @method('PUT')
                 <x-secondary-input type="text" name="title" placeholder="Title" value="{{$post->title}}" />
                 @if ($errors->has('title'))
                     <p class="text-sm text-red-500 ml-3">{{$errors->first('title')}}</p>

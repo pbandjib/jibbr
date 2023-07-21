@@ -20,7 +20,10 @@ Route::get('/', [PostController::class, 'index'])->name('post.index');
 Route::middleware('auth')->group(function () {
     Route::post('/post', [PostController::class,'store'])->name('post.store');
     Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
-    Route::get('/post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
+    Route::get('/post/{post}/edit', [PostController::class, 'edit'])
+        ->name('post.edit')
+        ->middleware('checkOwner:post');
+    Route::put('/post/{post}', [PostController::class, 'update'])->name('post.update');
 });
 
 Route::get('/post/{id}', [PostController::class,'show'])->name('post.show');
