@@ -18,7 +18,7 @@ class CommunityAdminFactory extends Factory
     {
         return [
             'community_id' => rand(1, 5),
-            'user_id' => rand(1, 5),
+            'user_id' => rand(1, 4),
         ];
     }
 }
