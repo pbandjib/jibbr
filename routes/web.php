@@ -39,19 +39,21 @@ Route::middleware('auth')->group(function () {
     });
 });
 
+Route::middleware('checkCommunityAdmin')->group(function () {
 
-Route::get('/community/{community}/edit', [CommunityController::class, 'edit'])
+    Route::get('/community/{community}/edit', [CommunityController::class, 'edit'])
         ->name('community.edit');
 
-Route::put('/community/{community}', [CommunityController::class, 'update'])
-    ->name('community.update');
+    Route::put('/community/{community}', [CommunityController::class, 'update'])
+        ->name('community.update');
 
-Route::delete('/community/{community}', [CommunityController::class, 'destroy'])
-    ->name('community.destroy');
+    Route::delete('/community/{community}', [CommunityController::class, 'destroy'])
+        ->name('community.destroy');
 
-Route::get('/community/{community}/delete', [CommunityController::class, 'delete'])
-    ->name('community.delete');
+    Route::get('/community/{community}/delete', [CommunityController::class, 'delete'])
+        ->name('community.delete');
 
+});
 
 Route::get('/post/{id}', [PostController::class,'show'])->name('post.show');
 
