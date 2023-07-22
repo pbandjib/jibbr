@@ -23,6 +23,7 @@
                         <img class="h-6 w-6 mr-3 rounded-full object-cover" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" />
                         <h3 class="font-bold mb-3 ">{{$post->community->community_name}}</h3>
                     @endif
+                </div>
 
                 <p class="mb-3 border-b border-gray-300 pb-3 break-all">{{$post->body}}</p>
                 <div class="flex justify-between">
