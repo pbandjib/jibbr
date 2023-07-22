@@ -19,4 +19,10 @@ class Community extends Model
         return $this->hasMany(Post::class);
     }
 
+    public function communityAdmin()
+    {
+        return $this->hasMany(CommunityAdmin::class);
+    }
+
+
 }
