@@ -41,11 +41,10 @@ class CommunityAdminController extends Controller
         CommunityAdmin::create([
             'user_id' => $userId,
             'community_id' => $community->id,
-
         ]);
+
+        return back()->with('success', 'Community Administrator Added');
     }
-
-
 
     /**
      * Display the specified resource.

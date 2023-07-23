@@ -12,6 +12,14 @@
 
                 <a href="{{route('community.edit', $community->id)}}">Edit</a>
                 <a href="{{route('community.delete', $community->id)}}">Delete</a>
+                <form method="post" action="{{route('community.admin.store', $community->id)}}" class="mt-4">
+                    @csrf
+                    <x-text-input name="username" placeholder="enter user's username" />
+                    @if ($errors->has('username'))
+                        <span class="text-red-500">{{$errors->first('username')}}</span>
+                    @endif
+                    <x-primary-button>Add Admin</x-primary-button>
+                </form>
             @endif
         </x-card>
         <x-card class=" flex h-10 w-full mt-4 items-center">
