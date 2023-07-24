@@ -8,7 +8,7 @@ use App\Models\CommunityModerator;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class CommunityAdminController extends Controller
+class CommunityModeratorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,7 +29,7 @@ class CommunityAdminController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Community $community)
+        public function store(Request $request, Community $community)
     {
         $formFields = $request->validate([
             'username' => 'required|string|max:20',
@@ -39,19 +39,14 @@ class CommunityAdminController extends Controller
             ->first()
             ->id;
 
-        CommunityAdmin::create([
-            'user_id' => $userId,
-            'community_id' => $community->id,
-        ]);
-
         CommunityModerator::create([
             'user_id' => $userId,
             'community_id' => $community->id,
         ]);
 
-
-        return back()->with('success', 'Community Administrator Added');
+        return back()->with('success', 'Community Moderator Added');
     }
+
 
     /**
      * Display the specified resource.
@@ -80,13 +75,14 @@ class CommunityAdminController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+
     public function destroy(Community $community, User $user)
     {
-        $communityAdmin = CommunityAdmin::where('community_id', $community->id)
+        $communityModerator = CommunityModerator::where('community_id', $community->id)
             ->where('user_id', $user->id)
             ->first();
 
-        $communityAdmin->delete();
-        return back()->with('message', 'community administrator removed');
+        $communityModerator->delete();
+        return back()->with('message', 'Community moderator removed');
     }
 }
