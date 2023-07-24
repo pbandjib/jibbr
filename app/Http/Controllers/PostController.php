@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Community;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -33,12 +34,19 @@ class PostController extends Controller
     {
         $formFields = $request->validate([
             'title' => 'required|string|max:100',
+            'community' => 'required|string|max:32',
             'body' => 'required|string|max:10000',
         ]);
 
         $formFields['user_id'] = auth()->id();
+        $communityId = Community::where('community_name', $formFields['community'])->first()->id;
 
-        Post::create($formFields);
+        Post::create([
+            'title' => $formFields['title'],
+            'community' => $communityId,
+            'body' => $formFields['body'],
+            'user_id' => $formFields['user_id'],
+        ]);
 
         return redirect('/')->with('message', 'Post created succesfully');
     }

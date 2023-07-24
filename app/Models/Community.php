@@ -29,5 +29,10 @@ class Community extends Model
         return $this->hasMany(CommunityAdmin::class);
     }
 
+    public function communityUser()
+    {
+        return $this->hasMany(CommunityUser::class);
+    }
+
 
 }
