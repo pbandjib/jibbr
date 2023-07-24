@@ -48,20 +48,23 @@ Route::middleware('checkCommunityAdmin')->group(function () {
     Route::put('/community/{community}', [CommunityController::class, 'update'])
         ->name('community.update');
 
-    Route::delete('/community/{community}', [CommunityController::class, 'destroy'])
-        ->name('community.destroy');
-
-    Route::get('/community/{community}/delete', [CommunityController::class, 'delete'])
-        ->name('community.delete');
-
     Route::get('/community/{community}/dashboard', [CommunityController::class, 'dashboard'])
         ->name('community.dashboard');
 
-    Route::post('/community/{community}/admin', [CommunityAdminController::class, 'store'])
-        ->name('community.admin.store');
+    Route::middleware('checkCommunityOwner')->group(function () {
 
-    Route::delete('/community/{community}/admin/{user}', [CommunityAdminController::class, 'destroy'])
-        ->name('community.admin.destroy');
+        Route::delete('/community/{community}', [CommunityController::class, 'destroy'])
+            ->name('community.destroy');
+
+        Route::get('/community/{community}/delete', [CommunityController::class, 'delete'])
+            ->name('community.delete');
+
+        Route::post('/community/{community}/admin', [CommunityAdminController::class, 'store'])
+            ->name('community.admin.store');
+
+        Route::delete('/community/{community}/admin/{user}', [CommunityAdminController::class, 'destroy'])
+            ->name('community.admin.destroy');
+    });
 
 });
 

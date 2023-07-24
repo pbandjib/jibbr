@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Community;
 use App\Models\CommunityAdmin;
+use App\Models\CommunityOwner;
 use Illuminate\Http\Request;
 
 class CommunityController extends Controller
@@ -39,6 +40,10 @@ class CommunityController extends Controller
 
         $community = Community::create($formFields);
         CommunityAdmin::create([
+            'user_id' => auth()->user()->id,
+            'community_id' => $community->id,
+        ]);
+        CommunityOwner::create([
             'user_id' => auth()->user()->id,
             'community_id' => $community->id,
         ]);
