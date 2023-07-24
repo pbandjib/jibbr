@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('community_admins', function (Blueprint $table) {
+        Schema::create('community_owners', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('community_id');
             $table->foreign('community_id')
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('community_admin');
+        Schema::dropIfExists('community_owners');
     }
 };
