@@ -68,5 +68,6 @@ class Kernel extends HttpKernel
         'checkCommunityAdmin' => \App\Http\Middleware\CheckCommunityAdmin::class,
         'checkCommunityOwner' => \App\Http\Middleware\CheckCommunityOwner::class,
         'checkCommunityModerator' => \App\Http\Middleware\CheckCommunityModerator::class,
+        'checkCommunityUser' => \App\Http\Middleware\CheckCommunityUser::class,
     ];
 }

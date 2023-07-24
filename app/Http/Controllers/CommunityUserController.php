@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Community;
-use App\Models\CommunityModerator;
-use App\Models\User;
+use App\Models\CommunityUser;
 use Illuminate\Http\Request;
 
-class CommunityModeratorController extends Controller
+class CommunityUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,24 +27,15 @@ class CommunityModeratorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-        public function store(Request $request, Community $community)
+    public function store(Community $community)
     {
-        $formFields = $request->validate([
-            'username' => 'required|string|max:20',
-        ]);
-
-        $userId = User::where('username', $formFields['username'])
-            ->first()
-            ->id;
-
-        CommunityModerator::create([
-            'user_id' => $userId,
+        CommunityUser::create([
+            'user_id' => auth()->user()->id,
             'community_id' => $community->id,
         ]);
 
-        return back()->with('success', 'Community Moderator Added');
+        return back()->with('success', 'Joined this community');
     }
-
 
     /**
      * Display the specified resource.
@@ -74,14 +64,13 @@ class CommunityModeratorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-
-    public function destroy(Community $community, User $user)
+    public function destroy(Community $community)
     {
-        $communityModerator = CommunityModerator::where('community_id', $community->id)
-            ->where('user_id', $user->id)
+        $communityUser = CommunityUser::where('community_id', $community->id)
+            ->where('user_id', auth()->user()->id)
             ->first();
 
-        $communityModerator->delete();
-        return back()->with('message', 'Community moderator removed');
+        $communityUser->delete();
+        return back()->with('message', 'You have left this community');
     }
 }

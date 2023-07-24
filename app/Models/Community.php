@@ -34,4 +34,10 @@ class Community extends Model
         return $this->hasMany(CommunityModerator::class);
     }
 
+    public function communityUser()
+    {
+        return $this->hasMany(CommunityUser::class);
+    }
+
+
 }
