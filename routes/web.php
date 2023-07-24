@@ -54,6 +54,9 @@ Route::middleware('checkCommunityAdmin')->group(function () {
     Route::get('/community/{community}/delete', [CommunityController::class, 'delete'])
         ->name('community.delete');
 
+    Route::get('/community/{community}/dashboard', [CommunityController::class, 'dashboard'])
+        ->name('community.dashboard');
+
     Route::post('/community/{community}/admin', [CommunityAdminController::class, 'store'])
         ->name('community.admin.store');
 

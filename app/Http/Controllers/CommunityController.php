@@ -58,6 +58,13 @@ class CommunityController extends Controller
         ]);
     }
 
+    public function dashboard(Community $community)
+    {
+        return view('community.dashboard', [
+            'community' => $community
+        ]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
