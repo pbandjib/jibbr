@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommunityAdminController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -52,6 +53,15 @@ Route::middleware('checkCommunityAdmin')->group(function () {
 
     Route::get('/community/{community}/delete', [CommunityController::class, 'delete'])
         ->name('community.delete');
+
+    Route::get('/community/{community}/dashboard', [CommunityController::class, 'dashboard'])
+        ->name('community.dashboard');
+
+    Route::post('/community/{community}/admin', [CommunityAdminController::class, 'store'])
+        ->name('community.admin.store');
+
+    Route::delete('/community/{community}/admin/{user}', [CommunityAdminController::class, 'destroy'])
+        ->name('community.admin.destroy');
 
 });
 

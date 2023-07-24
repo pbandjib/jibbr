@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Community;
+use App\Models\CommunityAdmin;
 use Illuminate\Http\Request;
 
 class CommunityController extends Controller
@@ -36,7 +37,11 @@ class CommunityController extends Controller
         ]);
 
 
-        Community::create($formFields);
+        $community = Community::create($formFields);
+        CommunityAdmin::create([
+            'user_id' => auth()->user()->id,
+            'community_id' => $community->id,
+        ]);
 
         return redirect('/')->with('message', 'Community created succesfully');
     }
@@ -49,6 +54,13 @@ class CommunityController extends Controller
         $community = Community::findOrFail($id);
 
         return view('community.show', [
+            'community' => $community
+        ]);
+    }
+
+    public function dashboard(Community $community)
+    {
+        return view('community.dashboard', [
             'community' => $community
         ]);
     }
