@@ -60,6 +60,9 @@ Route::middleware('checkCommunityAdmin')->group(function () {
     Route::post('/community/{community}/admin', [CommunityAdminController::class, 'store'])
         ->name('community.admin.store');
 
+    Route::delete('/community/{community}/admin/{user}', [CommunityAdminController::class, 'destroy'])
+        ->name('community.admin.destroy');
+
 });
 
 Route::get('/post/{id}', [PostController::class,'show'])->name('post.show');

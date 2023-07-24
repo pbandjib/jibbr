@@ -25,6 +25,16 @@
         <x-card class=" flex h-10 w-full mt-4 items-center">
             <p>Feed Filters</p>
         </x-card>
+        <x-card>
+            @foreach($community->communityAdmin as $admin)
+                <p>{{$admin->user->username}}</p>
+                <form action="{{route('community.admin.destroy', ['community' => $community->id, 'user' => $admin->user->id])}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <x-primary-button>Delete Admin</x-primary-button>
+                </form>
+            @endforeach
+        </x-card>
         <x-feed :posts="$community->posts" />
     </x-main-layout>
 </x-app-layout>

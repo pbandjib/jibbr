@@ -73,8 +73,13 @@ class CommunityAdminController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Community $community, User $user)
     {
-        //
+        $communityAdmin = CommunityAdmin::where('community_id', $community->id)
+            ->where('user_id', $user->id)
+            ->first();
+
+        $communityAdmin->delete();
+        return back()->with('message', 'community administrator removed');
     }
 }
