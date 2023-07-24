@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Community;
-use App\Models\CommunityAdmin;
 use App\Models\CommunityModerator;
 use App\Models\User;
 use Illuminate\Http\Request;
