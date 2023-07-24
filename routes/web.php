@@ -42,33 +42,42 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-Route::middleware('checkCommunityAdmin')->group(function () {
+//Moderator
+Route::middleware('checkCommunityModerator')->group(function () {
 
-    Route::get('/community/{community}/edit', [CommunityController::class, 'edit'])
-        ->name('community.edit');
+        Route::get('/community/{community}/dashboard', [CommunityController::class, 'dashboard'])
+            ->name('community.dashboard');
 
-    Route::put('/community/{community}', [CommunityController::class, 'update'])
-        ->name('community.update');
 
-    Route::get('/community/{community}/dashboard', [CommunityController::class, 'dashboard'])
-        ->name('community.dashboard');
+        //Admin
+        Route::middleware('checkCommunityAdmin')->group(function () {
 
-    Route::middleware('checkCommunityOwner')->group(function () {
+            Route::get('/community/{community}/edit', [CommunityController::class, 'edit'])
+                ->name('community.edit');
 
-        Route::delete('/community/{community}', [CommunityController::class, 'destroy'])
-            ->name('community.destroy');
+            Route::put('/community/{community}', [CommunityController::class, 'update'])
+                ->name('community.update');
 
-        Route::get('/community/{community}/delete', [CommunityController::class, 'delete'])
-            ->name('community.delete');
+            //Owner
+            Route::middleware('checkCommunityOwner')->group(function () {
 
-        Route::post('/community/{community}/admin', [CommunityAdminController::class, 'store'])
-            ->name('community.admin.store');
+                Route::delete('/community/{community}', [CommunityController::class, 'destroy'])
+                    ->name('community.destroy');
 
-        Route::delete('/community/{community}/admin/{user}', [CommunityAdminController::class, 'destroy'])
-            ->name('community.admin.destroy');
+                Route::get('/community/{community}/delete', [CommunityController::class, 'delete'])
+                    ->name('community.delete');
+
+                Route::post('/community/{community}/admin', [CommunityAdminController::class, 'store'])
+                    ->name('community.admin.store');
+
+                Route::delete('/community/{community}/admin/{user}', [CommunityAdminController::class, 'destroy'])
+                    ->name('community.admin.destroy');
+            });
+
+        });
     });
 
-});
+
 
 Route::get('/post/{id}', [PostController::class,'show'])->name('post.show');
 
