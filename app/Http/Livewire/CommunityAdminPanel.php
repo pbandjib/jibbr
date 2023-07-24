@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Community;
 use Livewire\Component;
 
 class CommunityAdminPanel extends Component
