@@ -11,7 +11,6 @@ class CommunityAdminUsers extends Component
 
     public function mount(Community $community)
     {
-        dd($community->community_name);
         $this->community = $community;
     }
 
