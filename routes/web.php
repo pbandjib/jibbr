@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommunityAdminController;
 use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\CommunityModeratorController;
 use App\Http\Controllers\CommunityUserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -57,6 +58,12 @@ Route::middleware('checkCommunityModerator')->group(function () {
 
             Route::put('/community/{community}', [CommunityController::class, 'update'])
                 ->name('community.update');
+
+            Route::post('/community/{community}/moderator', [CommunityModeratorController::class, 'store'])
+                ->name('community.moderator.store');
+
+            Route::delete('/community/{community}/moderator/{user}', [CommunityModeratorController::class, 'destroy'])
+                ->name('community.moderator.destroy');
 
             //Owner
             Route::middleware('checkCommunityOwner')->group(function () {
