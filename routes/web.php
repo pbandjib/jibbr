@@ -30,6 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/community/join', [CommunityUserController::class, 'store'])->name('community.user.join');
     Route::get('/post/{post}/report', [PostReportController::class,'create'])->name('post.report.create');
     Route::post('/post/{post}/report', [PostReportController::class, 'store'])->name('post.report.store');
+    Route::get('/user/{user}/report', [PostReportController::class,'create'])->name('user.report.create');
+    Route::post('/user/{user}/report', [PostReportController::class, 'store'])->name('user.report.store');
 
     Route::middleware('checkOwner:post')->group(function () {
         Route::get('/post/{post}/edit', [PostController::class, 'edit'])

@@ -9,10 +9,10 @@
                 </div>
                 <div>
                     {{--                    Add Community Picture--}}
-                    <p class="text-lg text-neutral-500">Community: <a class="text-link-primary" href="#">{{$post->community->community_name}}</a></p>
+                    <p class="text-lg text-neutral-500">Reported User <a class="text-link-primary" href="#">{{$user->username}}</a></p>
                 </div>
             </div>
-            <form class="flex flex-col mt-6" action="{{route('post.report.store', $post->id)}}" method="POST">
+            <form class="flex flex-col mt-6" action="{{route('user.report.store', $post->id)}}" method="POST">
                 @csrf
                 <x-textarea class="mt-4 h-44" name="report_description" placeholder="Write your report..."></x-textarea>
                 @if ($errors->has('body'))
