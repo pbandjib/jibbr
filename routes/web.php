@@ -5,6 +5,7 @@ use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\CommunityModeratorController;
 use App\Http\Controllers\CommunityUserController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostReportController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/community/create', [CommunityController::class, 'create'])->name('community.create');
     Route::post('/community', [CommunityController::class,'store'])->name('community.store');
     Route::post('/community/join', [CommunityUserController::class, 'store'])->name('community.user.join');
+    Route::get('/post/{post}/report', [PostReportController::class,'create'])->name('post.report.create');
+    Route::post('/post/{post}/report', [PostReportController::class, 'store'])->name('post.report.store');
 
     Route::middleware('checkOwner:post')->group(function () {
         Route::get('/post/{post}/edit', [PostController::class, 'edit'])
