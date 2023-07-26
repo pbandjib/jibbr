@@ -18,11 +18,12 @@ return new class extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-            $table->unsignedBigInteger('community_id')->nullable();
-            $table->foreign('community_id')
+            $table-> unsignedBigInteger('reported_user_id');
+            $table->foreign('reported_user_id')
                 ->references('id')
-                ->on('communities')
+                ->on('users')
                 ->onDelete('cascade');
+            $table->text('report_description');
             $table->timestamps();
         });
     }

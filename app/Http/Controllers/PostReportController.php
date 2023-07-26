@@ -22,7 +22,7 @@ class PostReportController extends Controller
      */
     public function create(Post $post)
     {
-        return view('post.report', ['post' => $post]);
+        return view('user.report', ['post' => $post]);
     }
 
     /**

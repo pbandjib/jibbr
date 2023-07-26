@@ -28,7 +28,7 @@ class UserReportController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Community $community)
+    public function store(Request $request, User $user)
     {
         $formFields = $request->validate([
             'report_description' => 'required|string|max:300',
@@ -38,7 +38,7 @@ class UserReportController extends Controller
 
         UserReport::create([
             'report_description' => $formFields['report_description'],
-            'community_id' => $community->id,
+            'reported_user_id' => $user->id,
             'user_id' => $formFields['user_id'],
         ]);
 
