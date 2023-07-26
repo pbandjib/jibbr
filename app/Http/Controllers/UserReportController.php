@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Community;
-use App\Models\Post;
-use App\Models\PostReport;
+use App\Models\User;
+use App\Models\UserReport;
 use Illuminate\Http\Request;
 
-class PostReportController extends Controller
+class UserReportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,15 +20,15 @@ class PostReportController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Post $post)
+    public function create(User $user)
     {
-        return view('user.report', ['post' => $post]);
+        return view('user.report', ['user' => $user]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Post $post)
+    public function store(Request $request, User $user)
     {
         $formFields = $request->validate([
             'report_description' => 'required|string|max:300',
@@ -36,13 +36,13 @@ class PostReportController extends Controller
 
         $formFields['user_id'] = auth()->user()->id;
 
-        PostReport::create([
+        UserReport::create([
             'report_description' => $formFields['report_description'],
-            'post_id' => $post->id,
+            'reported_user_id' => $user->id,
             'user_id' => $formFields['user_id'],
         ]);
 
-        return redirect(route('post.show', $post->id))->with('success', 'Your report has been submitted');
+        return back()->with('success', 'Your report has been submitted');
     }
 
     /**
@@ -50,7 +50,7 @@ class PostReportController extends Controller
      */
     public function show(string $id)
     {
-
+        //
     }
 
     /**
