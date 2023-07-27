@@ -11,10 +11,11 @@ class CommunityAdminReports extends Component
 
     public function mount(PostReport $postReports)
     {
+        dd(request()->route());
         foreach ($postReports as $postReport) {
             array_push($this->postReports, $postReport);
+            var_dump($postReport);
         }
-        dd($this->postReports);
     }
 
     public function render()
