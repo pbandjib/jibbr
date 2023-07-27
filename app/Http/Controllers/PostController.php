@@ -6,6 +6,7 @@ use App\Models\Community;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
+/* Lazy git test */
 class PostController extends Controller
 {
     /**
