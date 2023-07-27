@@ -20,8 +20,8 @@ class UserReport extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function post()
+    public function reported_user()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(User::class);
     }
 }

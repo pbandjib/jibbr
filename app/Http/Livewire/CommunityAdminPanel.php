@@ -2,20 +2,21 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Community;
 use Livewire\Component;
 
 class CommunityAdminPanel extends Component
 {
     public $community;
+    public $postReports;
 
     public $active='community-admin-dashboard';
 
     protected $listeners = ['showDashboard' => 'changeActiveComponent'];
 
-    public function mount(Community $community)
+    public function mount($community, $postReports)
     {
         $this->community = $community;
+        $this->postReports = $postReports;
     }
 
     public function changeActiveComponent($component)

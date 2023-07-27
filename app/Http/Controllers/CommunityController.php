@@ -7,6 +7,8 @@ use App\Models\CommunityAdmin;
 use App\Models\CommunityModerator;
 use App\Models\CommunityOwner;
 use Illuminate\Http\Request;
+use App\Models\PostReport;
+use App\Models\Post;
 
 class CommunityController extends Controller
 {
@@ -70,8 +72,14 @@ class CommunityController extends Controller
 
     public function dashboard(Community $community)
     {
+        $posts = Post::where('community_id', $community->id)->get();
+        $postReports = [];
+        foreach ($posts as $post) {
+            $postReports[$post->id] = PostReport::where('post_id', $post->id)->with('post')->get();
+        }
         return view('community.dashboard', [
-            'community' => $community
+            'community' => $community,
+            'postReports' => $postReports
         ]);
     }
 
